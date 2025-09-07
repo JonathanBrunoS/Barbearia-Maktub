@@ -6,7 +6,8 @@
     <title>Barbearia Maktub — Seu Estilo, Nossa Missão</title>
     <meta name="description" content="Barbearia Maktub em Pirituba, SP. Desde 2016 transformando visual, mente e realidade. Agende seu horário online.">
     <meta property="og:image" content="https://i.postimg.cc/6qCMnyY3/logo.jpg">
-    <link rel="canonical" href="https://barbeariamaktub.com.br/"> <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://barbeariamaktub.com.br/">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         /* Variáveis CSS para cores e fontes */
@@ -49,12 +50,6 @@
         }
 
         /* Utilitários */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         .button {
             display: inline-block;
             padding: 12px 25px;
@@ -63,6 +58,27 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             cursor: pointer;
             text-align: center;
+            position: relative; /* Necessário para os pseudo-elementos de animação */
+            overflow: hidden; /* Garante que a linha passe apenas dentro do botão */
+            z-index: 1;
+        }
+
+        /* Animação de linha para botões primários */
+        .button-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: none; /* Desativa a transição padrão */
+            z-index: 2;
+        }
+
+        .button-primary:hover::before {
+            left: 100%;
+            transition: all 0.7s ease-in-out;
         }
 
         .button-primary {
@@ -85,6 +101,12 @@
             background-color: var(--accent-gold);
             color: white;
             transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Header */
@@ -112,8 +134,7 @@
 
         .logo img {
             height: 50px;
-            /* Tratamento para logo com fundo branco */
-            background: rgba(255,255,255,0.1); /* Fundo levemente transparente para contraste */
+            background: rgba(255,255,255,0.1);
             padding: 6px;
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -134,7 +155,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: url('https://i.postimg.cc/cLLc49y6/interno-2.jpg') no-repeat center center/cover;
+            background: url('https://i.postimg.cc/5tpP5nDF/fundo.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -230,7 +251,7 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
-            object-position: top; /* Garante que o topo da imagem seja priorizado */
+            object-position: top;
             display: block;
         }
 
@@ -239,7 +260,7 @@
         }
 
         .barbeiro-card h3 {
-            margin: 0 0 15px; /* Margem ajustada para o novo layout */
+            margin: 0 0 15px;
             color: var(--primary-dark);
         }
         
@@ -440,7 +461,7 @@
 
         /* Mobile Navigation (Hamburger) */
         .hamburger-menu {
-            display: none; /* Escondido por padrão, visível apenas em mobile */
+            display: none;
             font-size: 30px;
             color: white;
             cursor: pointer;
@@ -492,10 +513,10 @@
             padding: 10px 15px;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
             z-index: 900;
-            display: none; /* Escondido por padrão, visível apenas em mobile */
-            justify-content: center; /* Centralizado para melhor visual */
+            display: none;
+            justify-content: center;
             align-items: center;
-            gap: 15px; /* Adicionado espaçamento entre os botões */
+            gap: 15px;
             color: white;
             font-size: 0.9em;
             box-sizing: border-box;
@@ -504,12 +525,29 @@
         .sticky-cta-wrapper .button {
             padding: 10px 20px;
             font-size: 0.9em;
-            flex-shrink: 0; /* Impede que os botões encolham */
+            flex-shrink: 0;
         }
 
         .sticky-cta-wrapper .status-text {
-            margin-right: auto; /* Empurra os botões para a direita */
-            flex-grow: 1; /* Permite que o texto ocupe o espaço */
+            margin-right: auto;
+            flex-grow: 1;
+            /* ANIMAÇÃO: Efeito pulsante para o texto de status */
+            animation: pulse-text 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-text {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Responsividade */
@@ -599,7 +637,6 @@
             .logo img {
                 height: 40px;
             }
-            /* Garante que o texto de status não comprima os botões */
             .sticky-cta-wrapper {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -665,7 +702,7 @@
             <div class="container">
                 <h2 id="barbeiros-heading">Escolha seu Barbeiro</h2>
                 <div class="barbeiros-grid">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -673,7 +710,7 @@
             <div class="container">
                 <h2 id="galeria-heading">Galeria de Cortes</h2>
                 <div class="galeria-grid">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -778,7 +815,6 @@
 
     <script>
         // Dados dos barbeiros e cortes
-        // AJUSTE: Sequência dos barbeiros e nome da Leticia corrigidos
         const barbeirosData = [
             { name: "Ricardo", image: "https://i.postimg.cc/NfhVFwpF/Barbeiro-Ricardo.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
             { name: "Adonis", image: "https://i.postimg.cc/rm1VH9pN/Barbeiro-adones.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
@@ -863,19 +899,16 @@
                         behavior: 'smooth'
                     });
                 }
-                // Fechar menu mobile se estiver aberto
                 document.querySelector('.mobile-nav').classList.remove('active');
             });
         });
 
         // Intersection Observer para animação fade-in ao scroll
         const sections = document.querySelectorAll('section');
-
         const appearOptions = {
             threshold: 0.1,
             rootMargin: "0px 0px -100px 0px"
         };
-
         const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
@@ -886,7 +919,6 @@
                 }
             });
         }, appearOptions);
-
         sections.forEach(section => {
             appearOnScroll.observe(section);
         });
@@ -894,7 +926,6 @@
         // Menu Hamburguer para Mobile
         const hamburger = document.querySelector('.hamburger-menu');
         const mobileNav = document.querySelector('.mobile-nav');
-
         hamburger.addEventListener('click', () => {
             mobileNav.classList.toggle('active');
         });
@@ -906,9 +937,7 @@
             const hour = now.getHours();
             const minute = now.getMinutes();
             const currentTimeInMinutes = hour * 60 + minute;
-
             let statusText = "";
-            let isOpen = false;
 
             // Horários de funcionamento (em minutos desde 00:00)
             const hours = {
@@ -924,7 +953,6 @@
             if (hours[dayOfWeek]) {
                 const { start, end } = hours[dayOfWeek];
                 if (currentTimeInMinutes >= start && currentTimeInMinutes <= end) {
-                    isOpen = true;
                     statusText = "Aberto agora!";
                 } else if (currentTimeInMinutes < start) {
                     statusText = `Abre às ${String(Math.floor(start / 60)).padStart(2, '0')}:${String(start % 60).padStart(2, '0')}`;
@@ -938,9 +966,8 @@
             document.querySelector('.sticky-cta-wrapper .status-text').textContent = statusText;
         }
 
-        // Chamar a função ao carregar e a cada minuto
         checkOpeningHours();
-        setInterval(checkOpeningHours, 60 * 1000); // Atualiza a cada minuto
+        setInterval(checkOpeningHours, 60000);
 
         // Gerar vCard
         document.getElementById('download-vcard').addEventListener('click', function(e) {
@@ -956,7 +983,6 @@
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         });
-
     </script>
 
     <script type="application/ld+json">
