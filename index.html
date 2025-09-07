@@ -6,21 +6,7 @@
     <title>Barbearia Maktub — Seu Estilo, Nossa Missão</title>
     <meta name="description" content="Barbearia Maktub em Pirituba, SP. Desde 2016 transformando visual, mente e realidade. Agende seu horário online.">
     <meta property="og:image" content="https://i.postimg.cc/6qCMnyY3/logo.jpg">
-    <link rel="canonical" href="https://barbeariamaktub.com.br/"> <!-- Substituir pelo domínio final -->
-
-    <!-- Google Fonts: Poppins (UI) e Merriweather (Headlines) -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Placeholder para Google Analytics / Tag Manager -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "GA_MEASUREMENT_ID");
-    </script>
-    -->
+    <link rel="canonical" href="https://barbeariamaktub.com.br/"> <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         /* Variáveis CSS para cores e fontes */
@@ -231,9 +217,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
             text-align: center;
-            display: block; /* Para o link ocupar todo o card */
             position: relative;
         }
 
@@ -246,14 +230,19 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
+            object-position: top; /* AJUSTE: Garante que o topo da imagem seja priorizado */
             display: block;
         }
 
-        .barbeiro-card h3 {
-            margin: 20px 0 10px;
-            color: var(--primary-dark);
+        .barbeiro-card-content {
+            padding: 15px;
         }
 
+        .barbeiro-card h3 {
+            margin: 0 0 15px; /* AJUSTE: Margem ajustada para o novo layout */
+            color: var(--primary-dark);
+        }
+        
         /* Seção Galeria de Cortes */
         .galeria-grid {
             display: grid;
@@ -500,23 +489,27 @@
             left: 0;
             width: 100%;
             background-color: var(--primary-dark);
-            padding: 10px 0;
+            padding: 10px 15px;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
             z-index: 900;
             display: none; /* Escondido por padrão, visível apenas em mobile */
-            justify-content: space-around;
+            justify-content: center; /* AJUSTE: Centralizado para melhor visual */
             align-items: center;
+            gap: 15px; /* AJUSTE: Adicionado espaçamento entre os botões */
             color: white;
             font-size: 0.9em;
+            box-sizing: border-box;
         }
 
         .sticky-cta-wrapper .button {
             padding: 10px 20px;
             font-size: 0.9em;
+            flex-shrink: 0; /* Impede que os botões encolham */
         }
 
         .sticky-cta-wrapper .status-text {
-            margin-right: 10px;
+            margin-right: auto; /* Empurra os botões para a direita */
+            flex-grow: 1; /* Permite que o texto ocupe o espaço */
         }
 
         /* Responsividade */
@@ -530,7 +523,7 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links, .cta-buttons {
+            .nav-links, .cta-group {
                 display: none;
             }
 
@@ -606,18 +599,22 @@
             .logo img {
                 height: 40px;
             }
+            /* AJUSTE: Garante que o texto de status não comprima os botões */
+            .sticky-cta-wrapper {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-bottom: 15px;
+            }
+            .sticky-cta-wrapper .status-text {
+                width: 100%;
+                text-align: center;
+                margin: 0 0 10px 0;
+            }
         }
 
     </style>
 </head>
 <body>
-    <!-- Comentário: Topo do arquivo, instruções rápidas -->
-    <!--
-        Para mudar o horário de funcionamento: Edite o JSON-LD no final do arquivo e o texto no footer.
-        Para trocar imagens: Atualize os URLs das imagens diretamente no HTML ou nos arrays JavaScript.
-        Para ativar analytics: Descomente o bloco de script do Google Analytics/Tag Manager no <head> e substitua 'GA_MEASUREMENT_ID'.
-    -->
-
     <header class="header" role="banner">
         <div class="container">
             <div class="logo">
@@ -629,15 +626,15 @@
                 <a href="#hero">Início</a>
                 <a href="#barbeiros">Barbeiros</a>
                 <a href="#galeria">Galeria</a>
-                <a href="#espaco">Nosso Espaço</a>
                 <a href="#quem-somos">Quem Somos</a>
+                <a href="#espaco">Nosso Espaço</a>
                 <a href="#avaliacoes">Avaliações</a>
             </nav>
             <div class="cta-group">
                 <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button">Agendar Horário</a>
                 <a href="https://wa.me/55119419108422" target="_blank" class="button button-secondary" role="button">WhatsApp</a>
             </div>
-            <div class="hamburger-menu" role="button" aria-label="Abrir menu de navegação">&#9776;</div>
+            <div class="hamburger-menu" role="button" aria-label="Abrir menu de navegação">☰</div>
         </div>
     </header>
 
@@ -645,8 +642,8 @@
         <a href="#hero">Início</a>
         <a href="#barbeiros">Barbeiros</a>
         <a href="#galeria">Galeria</a>
-        <a href="#espaco">Nosso Espaço</a>
         <a href="#quem-somos">Quem Somos</a>
+        <a href="#espaco">Nosso Espaço</a>
         <a href="#avaliacoes">Avaliações</a>
         <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary">Agendar Horário</a>
         <a href="https://wa.me/55119419108422" target="_blank" class="button button-secondary">WhatsApp</a>
@@ -668,8 +665,7 @@
             <div class="container">
                 <h2 id="barbeiros-heading">Escolha seu Barbeiro</h2>
                 <div class="barbeiros-grid">
-                    <!-- Barbeiros serão inseridos aqui via JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
@@ -677,7 +673,18 @@
             <div class="container">
                 <h2 id="galeria-heading">Galeria de Cortes</h2>
                 <div class="galeria-grid">
-                    <!-- Cortes serão inseridos aqui via JS -->
+                    </div>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="quem-somos" role="region" aria-labelledby="quem-somos-heading">
+            <div class="container owner-section">
+                <h2 id="quem-somos-heading">Quem Somos</h2>
+                <img src="https://i.postimg.cc/NFTQX73H/Barbeiro-Ricardoq.jpg" alt="Ricardo Rodrigues Martins, CEO da Barbearia Maktub" loading="lazy">
+                <div class="owner-text">
+                    <p><strong>A Maktub Nasceu de um Sonho</strong></p>
+                    <p>Com mais de uma década de experiência, Ricardo Rodrigues Martins é o nome por trás da Barbearia Maktub, marca que nasceu em 2016 com o propósito de ir além do corte de cabelo — oferecendo experiências, estilo e transformação de autoestima. De origem simples, Ricardo começou com uma visão clara: elevar o padrão do atendimento masculino, unir tradição com modernidade e formar uma equipe forte, comprometida e inspiradora.</p>
+                    <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button" style="margin-top: 20px;">Agende com nosso time</a>
                 </div>
             </div>
         </section>
@@ -698,18 +705,6 @@
                 </div>
                 <p>Av. Paula Ferreira, 1538 - Vila Bonilha, São Paulo - SP, 02916-000</p>
                 <a href="https://www.google.com/maps/search/?api=1&query=Av.+Paula+Ferreira,+1538+-+Vila+Bonilha,+S%C3%A3o+Paulo+-+SP,+02916-000" target="_blank" class="button button-secondary" style="margin-top: 20px;">Ver no Mapa</a>
-            </div>
-        </section>
-
-        <section id="quem-somos" class="quem-somos" role="region" aria-labelledby="quem-somos-heading">
-            <div class="container owner-section">
-                <h2 id="quem-somos-heading">Quem Somos</h2>
-                <img src="https://i.postimg.cc/NFTQX73H/Barbeiro-Ricardoq.jpg" alt="Ricardo Rodrigues Martins, CEO da Barbearia Maktub" loading="lazy">
-                <div class="owner-text">
-                    <p><strong>A Maktub Nasceu de um Sonho</strong></p>
-                    <p>Com mais de uma década de experiência, Ricardo Rodrigues Martins é o nome por trás da Barbearia Maktub, marca que nasceu em 2016 com o propósito de ir além do corte de cabelo — oferecendo experiências, estilo e transformação de autoestima. De origem simples, Ricardo começou com uma visão clara: elevar o padrão do atendimento masculino, unir tradição com modernidade e formar uma equipe forte, comprometida e inspiradora.</p>
-                    <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button" style="margin-top: 20px;">Agende com nosso time</a>
-                </div>
             </div>
         </section>
 
@@ -771,7 +766,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Barbearia Maktub. Todos os direitos reservados.</p>
+            <p>© 2025 Barbearia Maktub. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -802,17 +797,20 @@
         // Renderizar barbeiros
         const barbeirosGrid = document.querySelector('.barbeiros-grid');
         barbeirosData.forEach(barbeiro => {
-            const card = document.createElement('a');
+            // AJUSTE: Criar uma div em vez de um link 'a'
+            const card = document.createElement('div');
+            card.className = 'barbeiro-card';
+
             // Tenta adicionar query param se o app de agendamento suportar
             const bookingLink = barbeiro.booking.includes('?') ? `${barbeiro.booking}&barbeiro=${encodeURIComponent(barbeiro.name)}` : `${barbeiro.booking}?barbeiro=${encodeURIComponent(barbeiro.name)}`;
-            card.href = bookingLink;
-            card.target = "_blank";
-            card.className = 'barbeiro-card';
-            card.setAttribute('role', 'link');
-            card.setAttribute('aria-label', `Agendar horário com ${barbeiro.name}`);
+            
+            // AJUSTE: Adiciona o conteúdo com o novo botão "Agendar"
             card.innerHTML = `
                 <img src="${barbeiro.image}" alt="Foto de ${barbeiro.name}" loading="lazy">
-                <h3>${barbeiro.name}</h3>
+                <div class="barbeiro-card-content">
+                    <h3>${barbeiro.name}</h3>
+                    <a href="${bookingLink}" target="_blank" class="button button-primary" role="button">Agendar</a>
+                </div>
             `;
             barbeirosGrid.appendChild(card);
         });
@@ -933,10 +931,10 @@
                 } else if (currentTimeInMinutes < start) {
                     statusText = `Abre às ${String(Math.floor(start / 60)).padStart(2, '0')}:${String(start % 60).padStart(2, '0')}`;
                 } else {
-                    statusText = "Fechado. Horários disponíveis para agendamento.";
+                    statusText = "Fechado.";
                 }
             } else {
-                statusText = "Fechado. Horários disponíveis para agendamento.";
+                statusText = "Fechado.";
             }
 
             document.querySelector('.sticky-cta-wrapper .status-text').textContent = statusText;
@@ -963,7 +961,6 @@
 
     </script>
 
-    <!-- Structured Data for SEO (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -1025,4 +1022,3 @@
     </script>
 </body>
 </html>
-
