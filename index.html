@@ -675,7 +675,7 @@
                 <a href="#avaliacoes">Avaliações</a>
             </nav>
             <div class="cta-group">
-                <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button">Agendar Horário</a>
+                <a href="" target="_blank" class="button button-primary" role="button" id="header-agendar-btn">Agendar Horário</a>
                 <a href="https://wa.me/message/DK2AVLPJTLUCH1" target="_blank" class="button button-secondary" role="button">WhatsApp</a>
             </div>
             <div class="hamburger-menu" role="button" aria-label="Abrir menu de navegação">☰</div>
@@ -689,7 +689,7 @@
         <a href="#quem-somos">Quem Somos</a>
         <a href="#espaco">Nosso Espaço</a>
         <a href="#avaliacoes">Avaliações</a>
-        <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary">Agendar Horário</a>
+        <a href="" target="_blank" class="button button-primary" id="mobile-agendar-btn">Agendar Horário</a>
         <a href="https://wa.me/message/DK2AVLPJTLUCH1" target="_blank" class="button button-secondary">WhatsApp</a>
     </div>
 
@@ -699,7 +699,7 @@
                 <h1 id="hero-heading">Barbearia Maktub — Seu Estilo, Nossa Missão</h1>
                 <p>Desde 2016 transformando visual, mente e realidade.</p>
                 <div class="cta-group">
-                    <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button">Agendar Horário</a>
+                    <a href="" target="_blank" class="button button-primary" role="button" id="hero-agendar-btn">Agendar Horário</a>
                     <a href="#barbeiros" class="button button-secondary" role="button">Ver Barbeiros</a>
                 </div>
             </div>
@@ -728,7 +728,7 @@
                 <div class="owner-text">
                     <p><strong>A Maktub Nasceu de um Sonho</strong></p>
                     <p>Com mais de uma década de experiência, Ricardo Rodrigues Martins é o nome por trás da Barbearia Maktub, marca que nasceu em 2016 com o propósito de ir além do corte de cabelo — oferecendo experiências, estilo e transformação de autoestima. De origem simples, Ricardo começou com uma visão clara: elevar o padrão do atendimento masculino, unir tradição com modernidade e formar uma equipe forte, comprometida e inspiradora.</p>
-                    <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary" role="button" style="margin-top: 20px;">Agende com nosso time</a>
+                    <a href="" target="_blank" class="button button-primary" role="button" style="margin-top: 20px;" id="quemsomos-agendar-btn">Agende com nosso time</a>
                 </div>
             </div>
         </section>
@@ -803,7 +803,7 @@
             </div>
             <div class="footer-col">
                 <h4>Links Úteis</h4>
-                <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank">Agendamento</a>
+                <a href="" target="_blank" id="footer-agendar-btn">Agendamento</a>
                 <a href="#" target="_blank">Política de Privacidade</a>
                 <a href="#" target="_blank">Termos de Uso</a>
                 <a href="#" id="download-vcard">Baixar Contato (vCard)</a>
@@ -816,19 +816,23 @@
 
     <div class="sticky-cta-wrapper">
         <span class="status-text"></span>
-        <a href="https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" target="_blank" class="button button-primary">Agendar</a>
+        <a href="" target="_blank" class="button button-primary" id="sticky-agendar-btn">Agendar</a>
         <a href="https://wa.me/message/DK2AVLPJTLUCH1" target="_blank" class="button button-secondary">WhatsApp</a>
     </div>
 
     <script>
-        // Dados dos barbeiros e cortes
+        // --- CONFIGURAÇÕES GERAIS ---
+        const whatsAppNumber = "551194108422"; // Use apenas números. Ex: 5511999999999
+        const mensagemPadrao = "Olá! Vim do site e gostaria de agendar um horário.";
+
+        // --- DADOS DINÂMICOS ---
         const barbeirosData = [
-            { name: "Ricardo", image: "https://i.postimg.cc/NfhVFwpF/Barbeiro-Ricardo.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
-            { name: "Adonis", image: "https://i.postimg.cc/rm1VH9pN/Barbeiro-adones.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
-            { name: "Enzo", image: "https://i.postimg.cc/C1ztBh3B/Barbeiro-Enzo.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
-            { name: "Leticia", image: "https://i.postimg.cc/ZnnQNTXv/leticial-leal.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
-            { name: "Kauan", image: "https://i.postimg.cc/cJTTBpRR/Barbeiro-Kauan.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" },
-            { name: "Renan", image: "https://i.postimg.cc/j2D85MJz/Barbeiro-renan.jpg", booking: "https://sites.appbarber.com.br/agendamento/barbeariamaktub-w0cq#servicos" }
+            { name: "Ricardo", image: "https://i.postimg.cc/NfhVFwpF/Barbeiro-Ricardo.jpg" },
+            { name: "Adonis", image: "https://i.postimg.cc/rm1VH9pN/Barbeiro-adones.jpg" },
+            { name: "Enzo", image: "https://i.postimg.cc/C1ztBh3B/Barbeiro-Enzo.jpg" },
+            { name: "Leticia", image: "https://i.postimg.cc/ZnnQNTXv/leticial-leal.jpg" },
+            { name: "Kauan", image: "https://i.postimg.cc/cJTTBpRR/Barbeiro-Kauan.jpg" },
+            { name: "Renan", image: "https://i.postimg.cc/j2D85MJz/Barbeiro-renan.jpg" }
         ];
 
         const cortesData = [
@@ -838,157 +842,180 @@
             "https://i.postimg.cc/LsTYYRtp/corte5.jpg"
         ];
 
-        // Renderizar barbeiros
-        const barbeirosGrid = document.querySelector('.barbeiros-grid');
-        barbeirosData.forEach(barbeiro => {
-            const card = document.createElement('div');
-            card.className = 'barbeiro-card';
+        // --- LÓGICA DO SITE ---
+        document.addEventListener("DOMContentLoaded", function() {
 
-            const bookingLink = barbeiro.booking.includes('?') ? `${barbeiro.booking}&barbeiro=${encodeURIComponent(barbeiro.name)}` : `${barbeiro.booking}?barbeiro=${encodeURIComponent(barbeiro.name)}`;
+            // Função para criar links do WhatsApp
+            function criarLinkWhatsApp(mensagem) {
+                return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(mensagem)}`;
+            }
+
+            // Configurar botões de agendamento genéricos
+            const linkPadrao = criarLinkWhatsApp(mensagemPadrao);
+            document.getElementById('header-agendar-btn').href = linkPadrao;
+            document.getElementById('mobile-agendar-btn').href = linkPadrao;
+            document.getElementById('hero-agendar-btn').href = linkPadrao;
+            document.getElementById('quemsomos-agendar-btn').href = linkPadrao;
+            document.getElementById('footer-agendar-btn').href = linkPadrao;
+            document.getElementById('sticky-agendar-btn').href = linkPadrao;
             
-            card.innerHTML = `
-                <img src="${barbeiro.image}" alt="Foto de ${barbeiro.name}" loading="lazy">
-                <div class="barbeiro-card-content">
-                    <h3>${barbeiro.name}</h3>
-                    <a href="${bookingLink}" target="_blank" class="button button-primary" role="button">Agendar</a>
-                </div>
-            `;
-            barbeirosGrid.appendChild(card);
-        });
-
-        // Renderizar galeria de cortes
-        const galeriaGrid = document.querySelector('.galeria-grid');
-        cortesData.forEach(corte => {
-            const item = document.createElement('div');
-            item.className = 'galeria-item';
-            item.innerHTML = `
-                <img src="${corte}" alt="Corte de cabelo" loading="lazy">
-            `;
-            galeriaGrid.appendChild(item);
-        });
-
-        // Lightbox para a galeria
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox';
-        document.body.appendChild(lightbox);
-
-        galeriaGrid.addEventListener('click', function(e) {
-            if (e.target.tagName === 'IMG') {
-                const src = e.target.src;
-                lightbox.innerHTML = `<img src="${src}" alt="Imagem ampliada do corte de cabelo">`;
-                lightbox.classList.add('active');
+            // Renderizar barbeiros com links personalizados
+            const barbeirosGrid = document.querySelector('.barbeiros-grid');
+            if (barbeirosGrid) {
+                barbeirosData.forEach(barbeiro => {
+                    const card = document.createElement('div');
+                    card.className = 'barbeiro-card';
+                    
+                    const mensagemPersonalizada = `Olá! Vim do site e gostaria de agendar um horário com o ${barbeiro.name}.`;
+                    const bookingLink = criarLinkWhatsApp(mensagemPersonalizada);
+                    
+                    card.innerHTML = `
+                        <img src="${barbeiro.image}" alt="Foto de ${barbeiro.name}" loading="lazy">
+                        <div class="barbeiro-card-content">
+                            <h3>${barbeiro.name}</h3>
+                            <a href="${bookingLink}" target="_blank" class="button button-primary" role="button">Agendar</a>
+                        </div>
+                    `;
+                    barbeirosGrid.appendChild(card);
+                });
             }
-        });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            // Renderizar galeria de cortes
+            const galeriaGrid = document.querySelector('.galeria-grid');
+            if(galeriaGrid) {
+                cortesData.forEach(corte => {
+                    const item = document.createElement('div');
+                    item.className = 'galeria-item';
+                    item.innerHTML = `<img src="${corte}" alt="Corte de cabelo" loading="lazy">`;
+                    galeriaGrid.appendChild(item);
+                });
             }
-        });
 
-        // Smooth scroll para links de âncora
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - (document.querySelector('.header').offsetHeight),
-                        behavior: 'smooth'
-                    });
-                }
-                document.querySelector('.mobile-nav').classList.remove('active');
+            // Lightbox para a galeria
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            document.body.appendChild(lightbox);
+
+            if(galeriaGrid) {
+                galeriaGrid.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'IMG') {
+                        const src = e.target.src;
+                        lightbox.innerHTML = `<img src="${src}" alt="Imagem ampliada do corte de cabelo">`;
+                        lightbox.classList.add('active');
+                    }
+                });
+            }
+
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
             });
-        });
 
-        // Intersection Observer para animação fade-in ao scroll
-        const sections = document.querySelectorAll('section');
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -100px 0px"
-        };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
                 } else {
-                    entry.target.classList.add('is-visible');
-                    appearOnScroll.unobserve(entry.target);
+                    header.classList.remove('scrolled');
                 }
             });
-        }, appearOptions);
-        sections.forEach(section => {
-            appearOnScroll.observe(section);
-        });
 
-        // Menu Hamburguer para Mobile
-        const hamburger = document.querySelector('.hamburger-menu');
-        const mobileNav = document.querySelector('.mobile-nav');
-        hamburger.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
-        });
+            // Smooth scroll para links de âncora
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - (document.querySelector('.header').offsetHeight),
+                            behavior: 'smooth'
+                        });
+                    }
+                    document.querySelector('.mobile-nav').classList.remove('active');
+                });
+            });
 
-        // Lógica para Sticky CTA (horário de funcionamento)
-        function checkOpeningHours() {
-            const now = new Date();
-            const dayOfWeek = now.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
-            const hour = now.getHours();
-            const minute = now.getMinutes();
-            const currentTimeInMinutes = hour * 60 + minute;
-            let statusText = "";
-
-            // Horários de funcionamento (em minutos desde 00:00)
-            const hours = {
-                1: { start: 10 * 60, end: 21 * 60 }, // Segunda
-                2: { start: 8 * 60, end: 21 * 60 },  // Terça
-                3: { start: 8 * 60, end: 21 * 60 },  // Quarta
-                4: { start: 8 * 60, end: 21 * 60 },  // Quinta
-                5: { start: 8 * 60, end: 21 * 60 },  // Sexta
-                6: { start: 7 * 60, end: 19 * 60 },  // Sábado
-                0: { start: 8 * 60, end: 14 * 60 }   // Domingo
+            // Intersection Observer para animação fade-in ao scroll
+            const sections = document.querySelectorAll('section');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -100px 0px"
             };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+            sections.forEach(section => {
+                appearOnScroll.observe(section);
+            });
 
-            if (hours[dayOfWeek]) {
-                const { start, end } = hours[dayOfWeek];
-                if (currentTimeInMinutes >= start && currentTimeInMinutes <= end) {
-                    statusText = "Aberto agora!";
-                } else if (currentTimeInMinutes < start) {
-                    statusText = `Abre às ${String(Math.floor(start / 60)).padStart(2, '0')}:${String(start % 60).padStart(2, '0')}`;
+            // Menu Hamburguer para Mobile
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            hamburger.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+            });
+
+            // Lógica para Sticky CTA (horário de funcionamento)
+            function checkOpeningHours() {
+                const now = new Date();
+                const dayOfWeek = now.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+                const hour = now.getHours();
+                const minute = now.getMinutes();
+                const currentTimeInMinutes = hour * 60 + minute;
+                let statusText = "";
+
+                // Horários de funcionamento (em minutos desde 00:00)
+                const hours = {
+                    1: { start: 10 * 60, end: 21 * 60 }, // Segunda
+                    2: { start: 8 * 60, end: 21 * 60 },  // Terça
+                    3: { start: 8 * 60, end: 21 * 60 },  // Quarta
+                    4: { start: 8 * 60, end: 21 * 60 },  // Quinta
+                    5: { start: 8 * 60, end: 21 * 60 },  // Sexta
+                    6: { start: 7 * 60, end: 19 * 60 },  // Sábado
+                    0: { start: 8 * 60, end: 14 * 60 }   // Domingo
+                };
+
+                if (hours[dayOfWeek]) {
+                    const { start, end } = hours[dayOfWeek];
+                    if (currentTimeInMinutes >= start && currentTimeInMinutes <= end) {
+                        statusText = "Aberto agora!";
+                    } else if (currentTimeInMinutes < start) {
+                        statusText = `Abre às ${String(Math.floor(start / 60)).padStart(2, '0')}:${String(start % 60).padStart(2, '0')}`;
+                    } else {
+                        statusText = "Fechado.";
+                    }
                 } else {
                     statusText = "Fechado.";
                 }
-            } else {
-                statusText = "Fechado.";
+
+                document.querySelector('.sticky-cta-wrapper .status-text').textContent = statusText;
             }
 
-            document.querySelector('.sticky-cta-wrapper .status-text').textContent = statusText;
-        }
+            checkOpeningHours();
+            setInterval(checkOpeningHours, 60000);
 
-        checkOpeningHours();
-        setInterval(checkOpeningHours, 60000);
-
-        // Gerar vCard
-        document.getElementById('download-vcard').addEventListener('click', function(e) {
-            e.preventDefault();
-            const vcardContent = `BEGIN:VCARD\nVERSION:3.0\nFN:Barbearia Maktub\nORG:Barbearia Maktub\nTEL;TYPE=CELL:+551194108422\nADR:;;Av. Paula Ferreira, 1538;São Paulo;SP;02916-000;Brazil\nURL:https://barbeariamaktub.com.br/\nEND:VCARD`;
-            const blob = new Blob([vcardContent], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Barbearia_Maktub.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            // Gerar vCard
+            document.getElementById('download-vcard').addEventListener('click', function(e) {
+                e.preventDefault();
+                const vcardContent = `BEGIN:VCARD\nVERSION:3.0\nFN:Barbearia Maktub\nORG:Barbearia Maktub\nTEL;TYPE=CELL:+551194108422\nADR:;;Av. Paula Ferreira, 1538;São Paulo;SP;02916-000;Brazil\nURL:https://barbeariamaktub.com.br/\nEND:VCARD`;
+                const blob = new Blob([vcardContent], { type: 'text/vcard' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Barbearia_Maktub.vcf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
         });
     </script>
 
