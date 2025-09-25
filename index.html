@@ -822,7 +822,7 @@
 
     <script>
         // --- CONFIGURAÇÕES GERAIS ---
-        const whatsAppNumber = "551194108422"; // Use apenas números. Ex: 5511999999999
+        const whatsAppBaseLink = "https://wa.me/message/DK2AVLPJTLUCH1";
         const mensagemPadrao = "Olá! Vim do site e gostaria de agendar um horário.";
 
         // --- DADOS DINÂMICOS ---
@@ -845,9 +845,9 @@
         // --- LÓGICA DO SITE ---
         document.addEventListener("DOMContentLoaded", function() {
 
-            // Função para criar links do WhatsApp
+            // Função para criar links do WhatsApp com mensagens
             function criarLinkWhatsApp(mensagem) {
-                return `https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(mensagem)}`;
+                return `${whatsAppBaseLink}?text=${encodeURIComponent(mensagem)}`;
             }
 
             // Configurar botões de agendamento genéricos
